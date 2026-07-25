@@ -30,9 +30,6 @@ app/
 │   └── docs.py          # Swagger UI
 ├── models/              # SQLAlchemy models
 │   └── user.py          # User entity
-├── schemas/             # Marshmallow/serialization (add when needed)
-├── services/            # Business logic (add when needed)
-├── repositories/        # Data access layer (add when needed)
 ├── templates/           # Jinja2 templates
 │   ├── base.html        # Layout base
 │   ├── main/            # Home page
@@ -40,8 +37,7 @@ app/
 │   └── htmx/            # HTMX-powered views
 │       ├── index.html   # Main HTMX page
 │       └── partials/    # HTML fragments for HTMX
-├── static/              # CSS, JS, images
-├── utils/               # Helpers and utilities
+├── static/              # CSS, JS, images (add when needed)
 └── database/            # SQLAlchemy db instance and migrations
 ```
 
