@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>Tarea1 Flask</h1>
+    <p style="color: #666; margin-bottom: 2rem;">Bienvenido a la aplicación de gestión de usuarios.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem;">
+        <a href="{{ url_for('users.index') }}" class="btn btn-primary" style="justify-content: center; padding: 1.5rem;">
+            Listado de usuarios
+        </a>
+        <a href="{{ url_for('users.new') }}" class="btn btn-success" style="justify-content: center; padding: 1.5rem;">
+            Crear usuario
+        </a>
+        <a href="{{ url_for('htmx.index') }}" class="btn btn-info" style="justify-content: center; padding: 1.5rem;">
+            HTMX Demo
+        </a>
+        <a href="{{ url_for('docs.swagger_ui') }}" class="btn btn-warning" style="justify-content: center; padding: 1.5rem;">
+            Swagger UI
+        </a>
+    </div>
+</div>
+{% endblock %}

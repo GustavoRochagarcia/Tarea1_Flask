@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Usuarios{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="toolbar">
+        <h1>Usuarios</h1>
+        <a href="{{ url_for('users.new') }}" class="btn btn-success">+ Nuevo Usuario</a>
+    </div>
+
+    {% if users %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.dni }}</td>
+                <td>{{ user.given_name }}</td>
+                <td>{{ user.family_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <div class="actions">
+                        <a href="{{ url_for('users.show', id=user.id) }}" class="btn btn-info btn-sm">Ver</a>
+                        <a href="{{ url_for('users.edit', id=user.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state">
+        <p>No hay usuarios registrados.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

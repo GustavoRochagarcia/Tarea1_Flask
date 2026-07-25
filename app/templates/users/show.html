@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ user.given_name }} {{ user.family_name }}{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="toolbar">
+        <h1>{{ user.given_name }} {{ user.family_name }}</h1>
+        <div class="actions">
+            <a href="{{ url_for('users.edit', id=user.id) }}" class="btn btn-warning">Editar</a>
+            <form method="POST" action="{{ url_for('users.delete', id=user.id) }}" style="display:inline">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Eliminar usuario?')">Eliminar</button>
+            </form>
+            <a href="{{ url_for('users.index') }}" class="btn btn-outline">Volver</a>
+        </div>
+    </div>
+
+    <div class="detail-grid">
+        <div class="detail-item">
+            <div class="label">ID</div>
+            <div class="value">{{ user.id }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">DNI</div>
+            <div class="value">{{ user.dni }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">Email</div>
+            <div class="value">{{ user.email }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">Teléfono</div>
+            <div class="value">{{ user.phone_number }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">Dirección</div>
+            <div class="value">{{ user.address }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">Creado</div>
+            <div class="value">{{ user.created_at.strftime('%d/%m/%Y %H:%M') }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="label">Actualizado</div>
+            <div class="value">{{ user.updated_at.strftime('%d/%m/%Y %H:%M') }}</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

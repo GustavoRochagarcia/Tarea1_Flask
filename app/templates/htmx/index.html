@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Usuarios HTMX{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="toolbar">
+        <h1>Gestión de Usuarios (HTMX)</h1>
+        <a href="{{ url_for('users.index') }}" class="btn btn-outline">Volver al CRUD</a>
+    </div>
+
+    <div class="form-group" style="max-width: 400px; margin-bottom: 1.5rem;">
+        <input type="text"
+               id="search-input"
+               name="given_name"
+               placeholder="Buscar por nombre"
+               hx-get="/htmx/users/search"
+               hx-trigger="input changed delay:300ms"
+               hx-target="#users-table"
+               hx-include="[name='given_name']">
+    </div>
+
+    <div id="users-table" hx-get="/htmx/users" hx-trigger="load">
+        <div class="empty-state">Cargando usuarios...</div>
+    </div>
+</div>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+{% endblock %}

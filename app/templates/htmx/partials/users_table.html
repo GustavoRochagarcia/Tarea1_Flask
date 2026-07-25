@@ -1,0 +1,33 @@
+{% if users %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.dni }}</td>
+            <td>{{ user.given_name }}</td>
+            <td>{{ user.family_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone_number }}</td>
+            <td>{{ user.address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p style="margin-top: 1rem; color: #888; font-size: 0.9rem;">Total: {{ users|length }} usuario(s)</p>
+{% else %}
+<div class="empty-state">
+    <p>No se encontraron usuarios.</p>
+</div>
+{% endif %}
