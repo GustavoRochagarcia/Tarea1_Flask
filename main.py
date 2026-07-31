@@ -1,6 +1,6 @@
 from app import create_app
 from app.database import db
-from app.models import User  # noqa: F401 — ensure models are registered
+from app.models import User  # noqa: F401 — ensure models are registere
 
 app = create_app()
 
